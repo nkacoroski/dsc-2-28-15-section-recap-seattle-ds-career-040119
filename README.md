@@ -1,38 +1,41 @@
 
-# Section Recap
+# Networks - Recap
 
 ## Introduction
 
-This short lesson summarizes key takeaways from section 28
+In this section you got to explore a new data structure: networks! While network analysis is a deep topic with many additional topics to explore, you should have a good initial introduction and enough to conduct some preliminary analyses for social networks and building recommendation systems.
 
 ## Objectives
+
 You will be able to:
-* Understand and explain what was covered in this section
-* Understand and explain why this section will help you become a data scientist
+* Give an overview of techniques and terms for network data
 
-## Key Takeaways
+## Networks
 
-The key takeaways from this section include:
-* One way of modeling certain types of data is using a graph
-* A graph is comprised of nodes (sometimes called vertices or points) connected by edges (sometimes called arcs or lines)
-* Edges can be uni-or bidirectional (I buy from a local suopermarket, but the supermarket may not buy from me - unless I run a dairy farm)
-* Edges can also be weighted (length of friendship, distance between two locations, how many stars someone rated a movie, etc)
-* Nodes are adjacent if there is at least one edge connecting them
-* In an undirected graph, the degree of a node is the number of edges connected to the node
-* In a directed graph, the indegree is the number of edges arriving at the node and the outdegree is the number of edges departing the node
-* An isolated node is one with a degree of 0
-* A path is a specific way to get from one node to another via 1..n edges
-* Two ways of serializing (saving to simple text files) graph data are edge lists and adjacency matrices
-* Dijkstra's algorithm is a popular algorithm for finding the shortest path between two given nodes
-* Degree centrality refers to the percentage of nodes in a graph that a given node is directly connected to
-* Closeness centrality measures how many edges a you'd have to traverse from a starting node to reach every other node in the network (think of it as the "average distance" to all other nodes)
-* Betweenness centrality measures the number of times a node acts as a brideg along the shortest path between two other nodes
-* Eigenvector centrality is high if a node is connected to many well connected nodes
-* Bipartite graphs are graphs where nodes in each of two sets have edges connecting to nodes in the other set but no nodes in their own set
-* Communities (also called partitions, clusters and groupings) are sets of nodes that are more densely connected to each other than to the rest of the graph
-* The Grivan-Newman algorithm can be used to detect communbities by progressively removing edges from the original graph
-* A clique is a subset of nodes in an undirected graph where every two distinct nodes are adjacent
-* A k-clique community is the union of all cliques of size k that can be reached through adjacent (sharing k-1 nodes) k-cliques
-* The island method can be used to identify highly connected communities
-* An ego network consists of a focal node ("ego") and the nodes to whom the ego node is directly connected to (these are called "alters") plus the edges, if any, among the alters
+You've seen that networks can represent a range of different underlying data. From directions, social networks and customer databases, networks are a wonderful way to represent the relationships between individuals. They also make for some snazzy visuals!
 
+## Paths
+
+The first stop along your journey was paths! Here, you investigated Dijkstra's algorithm to find the shortest path between nodes. This harked back to some of your experience scraping the web when you used recursive functions to perform breadth and depth based search techniques to transverse a json file. While you didn't directly explore this application, networks are also a natural representation for exploring internet traffic and web page structures.
+
+## Centrality
+
+Once you had a metric to calculate the distance between nodes, you then started to investigate other central concepts 
+of networks such as which nodes were most influential or connected within a graph. You saw how alternative metrics can provide different insights on node structure. As a quick recap:
+
+* **Degree-centrality**: The number of edges attached to a node
+* **Closeness-centrality**: The reciprocal of the sum of the distances to all other nodes in the network 
+* **Betweeness-centrality**: The number of shortest paths between all node pairs the node lies on divided by the maximum number of shortests-paths any one node in the network lies on.
+* **Eigenvalue-centrality**: An iterative algorithm which assigns relative influence to a node based on the number and importance of connected nodes. Can be very computationally expensive to compute for large networks. Google's pagerank algorithm is a variation of eigenvalue-centrality.
+
+## Clustering
+
+After discussing centrality, you then focused on larger structures within a network, breaking apart nodes into clusters to examine subgroups. While this is a common and useful application, it is an ill-defined problem mathematically, often making it difficult to definitively determine an optimal clustering schema. 
+
+## Recommendations
+
+Finally, you rounded out the section by investigating how networks can be used to provide recommendations to users. To do this, you investigated a preliminary approach known as collaborative filtering, specifically exploring user based collaborative filtering in which similar users are identified and their preferences are used to generate recommendations to the user in question. There are many alternative approaches to recommendations systems such as using Singular Value Decomposition. 
+
+## Summary
+
+A lot was covered in this section! From this, you should have a solid introduction to networks, and some of their applications. Going forward, continue to explore ongoing developments in clustering social networks, and generating recommendations from these fascinating data structures.
